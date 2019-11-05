@@ -1,0 +1,105 @@
+body {
+    font-family: helvetica, sans-serif;
+    color: #777;
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid #AAA;
+}
+
+.campo {
+    margin:10px 0px;
+}
+
+/*
+.campo:focus {
+	width: 80%;
+	transition: 0.8s linear;
+}
+*/
+
+#fieldMensagem {
+    resize: none;
+}
+
+.livroVisitas {
+    width: 35%;
+}
+
+.campos, .visitas {
+	border: 1px solid #000;
+}
+
+.livroVisitas, .campos, .visitas {
+	margin: 0 auto;
+	background: #F9F9F9;
+	padding: 10px;
+}
+
+input, textarea, .botao {
+    display: block;
+    margin: 10px 0;
+    width: 100%;	
+	overflow-x: auto;
+	box-sizing: border-box;
+}
+
+.botao {  
+    background-color: #4CAF50;
+    border-radius: 10px;
+    border: none; 
+    color: #FFF;
+    padding: 10px;
+	outline: none;
+}
+
+.botao:hover {
+    background-color: #43A047;
+    border-radius: 10px;
+    border: none;
+    color: #FFF;
+	cursor: pointer;
+}
+
+.mensagem {
+	margin-top: 10px;
+	width: 50% auto;
+	padding: 5px;
+	background-color: #9cb8e6;
+	border-radius: 10px;
+    border: none; 
+	outline: none;
+	overflow: auto;
+}
+	
+.botaoRemover {
+    color: red;
+    text-decoration: none;
+	display: flex;
+	float: right;
+}
+
+.nomeUsuario {
+	color: black;
+	font-weight: bold;
+}
+
+.dataUsuario {
+	font-weight: bold;
+}
+
+.mensagemUsuario {
+	color: black;
+}
+
+.erro {
+	color: red;
+	font-size: 100%;
+}
+
+.mensagens {
+	height: 168px;
+	overflow: auto;
+}

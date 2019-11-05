@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Livro de Visitas</title>
+		<link rel="stylesheet" type="text/css" th:href="@{/css/estilos.css}">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	</head>
+	<body>
+		<section class="livroVisitas">
+			<div class="campos">
+			<h1>Livro de visitas</h1>
+			<br/>
+				<h2>Digite o seu nome e uma mensagem:</h2>
+				<br/>
+				<section class="formulario">
+					<form method="post" th:object="${usuario}">
+						<span th:if="${#fields.hasErrors()}" class="erro">Os dados possuem erros. Revise e os envie novamente</span>
+						<br/>
+						
+						<label th:for="fieldNome">Nome:</label>
+						<br/>
+						<input type="text" th:id="fieldNome" th:class="campo" th:field="*{nome}"/>
+						<span class="erro" th:errors="*{nome}">Erro</span>
+						<br/>
+						<label th:for="fieldMensagem">Mensagem:</label>
+						<br/>
+						<textarea th:rows="5" th:id="fieldMensagem" th:class="campo" th:field="*{mensagem}"></textarea>
+						<span class="erro" th:errors="*{mensagem}">Erro</span>
+						<br/>
+						<input class="botao" type="submit" value="Enviar mensagem"/>
+						<input class="botao"  type="reset" value="Limpar campos">
+					</form>
+				</section>
+			</div>
+			<br/>
+			<section class="visitas">
+				<h2>Mensagens:</h2>
+				<div class="mensagens">
+					<form method="post" th:object="${usuario}" th:action="@{/remover}">
+		                <div class="mensagem" th:each="usuario : ${usuarios}">
+		                    <label class="nomeUsuario" th:text="${usuario.nome}">Nome</label>
+		                    <label class="dataUsuario" th:text="${usuario.data}">Data</label>
+		                     <a class="botaoRemover" th:href="@{/remover/{id}(id=${usuario.id})}">
+		                    	<i class="material-icons">close</i></a>
+		                    <br/>
+		                    <label class="mensagemUsuario" th:text="${usuario.mensagem}">Mensagem</label>
+		                </div>
+	           		</form>
+				</div>
+			</section>
+		</section>
+	</body>
+</html>
